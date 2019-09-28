@@ -3,4 +3,9 @@ const screenSize = {
   height: 240,
 }
 
-export default screenSize
+const scale = 1
+
+export default {
+  width: screenSize.width * scale,
+  height: screenSize.height * scale,
+}
