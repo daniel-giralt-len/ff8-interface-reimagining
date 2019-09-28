@@ -44,8 +44,8 @@ const LongMember = ({ name, level, hp, maxHp }) => {
 const ActivePartyWindow = ({ position, member }) => {
   return (<Window
     title={copy.window.status.title}
-    x='1.25%' y={`${10 + 10 * position}%`}
-    width='67%'
+    x='1.25%' y={`${10 + 10.5 * position}%`}
+    width='67%' height='9%'
   >
     <LongMember {...member} />
   </Window>)

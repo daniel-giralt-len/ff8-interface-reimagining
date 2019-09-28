@@ -4,25 +4,25 @@ import screenSize from '../data/screen-size'
 import font from '../data/font'
 
 const StyledWindowTitle = styled.div`
-color: #AFAFAF;
-${font.size.tiny}
-margin-left: 5px;
-line-height: 0px;
+  color: #AFAFAF;
+  ${font.size.tiny}
+  margin-left: 5px;
+  line-height: 0px;
 `
 
 const StyledWindowChildren = styled.div`
-padding: 2px 4px;
-font-variant-numeric: tabular-nums;
+  padding: 2px 4px;
+  font-variant-numeric: tabular-nums;
 `
 
 const StyledWindow = styled.div`
-position: absolute;
-background: linear-gradient(to right, #404040, #636363);
-border: 1px double #232323;
-${({ width }) => width && `width: ${width};`}
-${({ height }) => height && `height: ${height};`}
-${({ x }) => x && `margin-left: ${x};`}
-${({ y }) => y && `margin-top: ${y};`}
+  position: absolute;
+  background: linear-gradient(to right, #404040, #636363);
+  border: 1px double #232323;
+  ${({ width }) => width && `width: ${width};`}
+  ${({ height }) => height && `height: ${height};`}
+  ${({ x }) => x && `margin-left: ${x};`}
+  ${({ y }) => y && `margin-top: ${y};`}
 `
 
 const Window = ({ title, x, y, width, height, children }) => {

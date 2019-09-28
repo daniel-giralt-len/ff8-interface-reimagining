@@ -9,20 +9,20 @@ ${font.size.small}
 `
 
 const StyledGeneralDataSpacer = styled.div`
-display: flex;
-justify-content: space-between;
-padding: 1px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 0px;
 `
 
 const StyledMoneySpacer = styled.div`
-display: flex;
-justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const GeneralDataWindow = ({ playTime, rank, gil }) => {
   return (<Window
     x='72%' y='78%'
-    width='23%'
+    width='23%' height='16%'
   >
     <StyledGeneralData>
       <StyledGeneralDataSpacer>

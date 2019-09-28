@@ -7,6 +7,69 @@ import React, { useEffect, useState } from 'react'
 import Window from '../window'
 import copy from '../../data/copy'
 
+const generalData = {
+  playTime: {
+    hours: 56,
+    minutes: 47
+  },
+  rank: '29',
+  gil: '123100'
+}
+const activeParty = [
+  {
+    name: 'Zell',
+    level: 9,
+    hp: 5,
+    maxHp: 102
+  },
+  {
+    name: 'Squall',
+    level: 99,
+    hp: 9999,
+    maxHp: 9999
+  },
+  {
+    name: 'Irvine',
+    level: 23,
+    hp: 0,
+    maxHp: 3492
+  }
+]
+
+const inactiveParty = [
+  {
+    name: 'Selphie',
+    level: 13,
+    hp: 0,
+    maxHp: 5348
+  },
+  {
+    name: 'Quistis',
+    level: 100,
+    hp: 4812,
+    maxHp: 6543
+  },
+  {
+    name: 'Rinoa',
+    level: 15,
+    hp: 200,
+    maxHp: 915
+  }
+]
+
+const submenuList = [
+  'junction',
+  'item',
+  'magic',
+  'gf',
+  'ability',
+  'switch',
+  'card',
+  'config',
+  'tutorial',
+  'save'
+]
+
 const StyledMenu = styled.div`
   padding: 4px;
   position: relative;
@@ -60,74 +123,11 @@ const MainMenu = ({ onNavigate }) => {
     }
   }, Object.values(input))
 
-  const generalData = {
-    playTime: {
-      hours: 56,
-      minutes: 47
-    },
-    rank: '29',
-    gil: '123100'
-  }
-  const activeParty = [
-    {
-      name: 'Zell',
-      level: 9,
-      hp: 5,
-      maxHp: 102
-    },
-    {
-      name: 'Squall',
-      level: 99,
-      hp: 9999,
-      maxHp: 9999
-    },
-    {
-      name: 'Irvine',
-      level: 23,
-      hp: 0,
-      maxHp: 3492
-    }
-  ]
-
-  const inactiveParty = [
-    {
-      name: 'Selphie',
-      level: 13,
-      hp: 0,
-      maxHp: 5348
-    },
-    {
-      name: 'Quistis',
-      level: 100,
-      hp: 4812,
-      maxHp: 6543
-    },
-    {
-      name: 'Rinoa',
-      level: 15,
-      hp: 200,
-      maxHp: 915
-    }
-  ]
-
-  const submenuList = [
-    'junction',
-    'item',
-    'magic',
-    'gf',
-    'ability',
-    'switch',
-    'card',
-    'config',
-    'tutorial',
-    'save'
-  ]
-
   return (<StyledMenu>
     <Window
       title={copy.window.help.title}
       x='0%' y='0%'
-      width='70%'
+      width='70%' height='8%'
     >
       {copy.window.help.main.submenus.gf}
     </Window>
@@ -143,8 +143,8 @@ const MainMenu = ({ onNavigate }) => {
       party={inactiveParty}
     />
     <Window
-      y='86%'
-      width='70%'
+      y='85%'
+      width='70%' height='8%'
     >
        Island Closest to Hell
     </Window>

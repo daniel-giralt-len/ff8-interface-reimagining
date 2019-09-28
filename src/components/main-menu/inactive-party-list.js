@@ -65,7 +65,7 @@ const ShortMember = (member) => {
 
 const InactivePartyList = ({ party }) => {
   return (<Window
-    x='1.25%' y='40%'
+    x='1.25%' y='42%'
     width='67%' height='40%'
   >
     <StyledInactivePartyList>
