@@ -4,7 +4,7 @@ import getMemberColorByStatus from './get-member-color'
 import copy from '../../data/copy'
 import Window from '../window'
 
-const StyledLongMember = styled.div`
+/* const StyledLongMember = styled.div`
   display: flex;
   justify-content: space-between;
   color: ${({ isKO, isCritical }) => getMemberColorByStatus({ isKO, isCritical })}
@@ -22,6 +22,19 @@ const StyledLongLevelSpacer = styled.div`
   justify-content: space-between;
   width: 30%;
 `
+ */
+
+const StyledLongMember = styled.div`
+  width: 100%
+  display: grid;
+  text-align: right;
+  grid-template-columns: 24% 11% 13% 11% 19% 5% 16.5%;
+  color: ${({ isKO, isCritical }) => getMemberColorByStatus({ isKO, isCritical })}
+`
+
+const StyledMemberName = styled.div`
+  text-align: left;
+`
 
 const LongMember = ({ name, level, hp, maxHp }) => {
   const isCritical = hp / maxHp < 0.25
@@ -30,14 +43,13 @@ const LongMember = ({ name, level, hp, maxHp }) => {
     isCritical={isCritical}
     isKO={isKO}
   >
-    <StyledLongMemberSpacer>
-      <div>{name}</div>
-      <StyledLongLevelSpacer>{copy.window.party.level} {level}</StyledLongLevelSpacer>
-    </StyledLongMemberSpacer>
-    <StyledLongMemberSpacer>
+      <StyledMemberName>{name}</StyledMemberName>
+      <div>{copy.window.party.level}</div>
+      <div>{level}</div>
       <div>{copy.window.party.hp}</div>
-      <div>{hp} / {maxHp}</div>
-    </StyledLongMemberSpacer>
+      <div>{hp}</div>
+      <div>/</div>
+      <div>{maxHp}</div>
   </StyledLongMember>)
 }
 
