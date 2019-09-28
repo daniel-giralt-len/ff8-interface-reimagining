@@ -136,7 +136,6 @@ const MainMenu = ({ onNavigate }) => {
       ? y = mid(0, y, cursorLayout[x].length - 1)
       : y = 0 // reset list position to 0 if active list changes
     setCursor({ x, y })
-    console.log(x, y)
   }, Object.values(input))
 
   return (<StyledMenu>
