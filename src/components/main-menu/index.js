@@ -2,6 +2,7 @@ import SubMenusList from './submenus-list'
 import ActivePartyList from './active-party-list'
 import InactivePartyList from './inactive-party-list'
 import GeneralDataWindow from './general-data-window'
+import cursorLayout from './cursor-layout'
 
 import Window from '../window'
 import Cursor from '../cursor'
@@ -117,14 +118,19 @@ const MainMenu = ({ onNavigate }) => {
     cancel: useKeyPress('x')
   }
 
-  const [cursor, setCursor] = useState('submenus')
-
+  const mid = (n1, n2, n3) => n1 + n2 + n3 - Math.min(n1, n2, n3) - Math.max(n1, n2, n3)
+  const [cursor, setCursor] = useState({ x: 1, y: 0 })
   useEffect(() => {
-    if (input.left) {
-      setCursor('submenus')
-    } else if (input.right) {
-      setCursor('activeParty')
-    }
+    let { x, y } = cursor
+    if (input.left) { x -= 1 }
+    if (input.right) { x += 1 }
+    if (input.up) { y -= 1 }
+    if (input.down) { y += 1 }
+    x = mid(0, x, cursorLayout.length - 1)
+    x === cursor.x
+      ? y = mid(0, y, cursorLayout[x].length - 1)
+      : y = 0
+    setCursor({ x, y })
   }, Object.values(input))
 
   return (<StyledMenu>
@@ -137,12 +143,10 @@ const MainMenu = ({ onNavigate }) => {
       {copy.window.help.main.submenus.gf}
     </Window>
     <SubMenusList
-      hasCursor={cursor === 'submenu'}
       submenus={submenuList}
     />
     <ActivePartyList
       party={activeParty}
-      hasCursor={cursor === 'activeParty'}
     />
     <InactivePartyList
       party={inactiveParty}
