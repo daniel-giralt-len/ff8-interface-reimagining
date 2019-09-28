@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import getMemberColorByStatus from './get-member-color'
 import copy from '../../data/copy'
 import Window from '../window'
+import Cursor from '../cursor'
 
 const StyledLongMember = styled.div`
-  ${({ hasCursor }) => hasCursor && 'background:red;'}
   width: 100%
   display: grid;
   text-align: right;
@@ -23,8 +23,8 @@ const LongMember = ({ name, level, hp, maxHp, hasCursor }) => {
   return (<StyledLongMember
     isCritical={isCritical}
     isKO={isKO}
-    hasCursor={hasCursor}
   >
+    {hasCursor && (<Cursor x='-10%'/>)}
     <StyledMemberName>{name}</StyledMemberName>
     <div>{copy.window.party.level}</div>
     <div>{level}</div>

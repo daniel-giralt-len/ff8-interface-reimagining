@@ -5,7 +5,6 @@ import GeneralDataWindow from './general-data-window'
 import cursorLayout from './cursor-layout'
 
 import Window from '../window'
-import Cursor from '../cursor'
 
 import copy from '../../data/copy'
 
@@ -120,7 +119,7 @@ const MainMenu = ({ onNavigate }) => {
 
   const mid = (n1, n2, n3) => n1 + n2 + n3 - Math.min(n1, n2, n3) - Math.max(n1, n2, n3)
   const getCursor = listPosition => cursor.x === listPosition && cursorLayout[cursor.x][cursor.y]
-  const [cursor, setCursor] = useState({ x: 1, y: 0 })
+  const [cursor, setCursor] = useState({ x: 0, y: 0 })
   useEffect(() => {
     let { x, y } = cursor
     if (input.left) {
@@ -149,14 +148,6 @@ const MainMenu = ({ onNavigate }) => {
     >
       {copy.window.help.main.submenus.gf}
     </Window>
-    <SubMenusList
-      submenus={submenuList}
-      cursor={getCursor(1)}
-    />
-    <ActivePartyList
-      party={activeParty}
-      cursor={getCursor(0)}
-    />
     <InactivePartyList
       party={inactiveParty}
     />
@@ -167,10 +158,17 @@ const MainMenu = ({ onNavigate }) => {
     >
        Island Closest to Hell
     </Window>
+    <ActivePartyList
+      party={activeParty}
+      cursor={getCursor(0)}
+    />
+    <SubMenusList
+      submenus={submenuList}
+      cursor={getCursor(1)}
+    />
     <GeneralDataWindow
       {...generalData}
     />
-    <Cursor x='0%' y='0%' />
   </StyledMenu>)
 }
 

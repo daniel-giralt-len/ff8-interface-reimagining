@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import copy from '../../data/copy'
 import Window from '../window'
+import Cursor from '../cursor'
 
 const StyledSubMenusList = styled.ul`
   list-style: none;
@@ -21,7 +22,8 @@ const SubMenusList = ({ submenus, cursor }) => {
   >
     <StyledSubMenusList>
       {submenus.map((submenu) => {
-        return (<SubMenuItem key={submenu} hasCursor={cursor === submenu}>
+        return (<SubMenuItem key={submenu}>
+          {cursor === submenu && (<Cursor x='-30%' />)}
           {copy.window.submenus[submenu]}
         </SubMenuItem>)
       })}
