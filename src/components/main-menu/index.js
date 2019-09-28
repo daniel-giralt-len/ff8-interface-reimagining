@@ -2,7 +2,7 @@ import SubMenusList from './submenus-list'
 import ActivePartyList from './active-party-list'
 import InactivePartyList from './inactive-party-list'
 import GeneralDataWindow from './general-data-window'
-import cursorLayout from './cursor-layout'
+import { cursorLayout, initialCursor } from './cursor-layout'
 
 import Window from '../window'
 
@@ -119,7 +119,7 @@ const MainMenu = ({ onNavigate }) => {
 
   const mid = (n1, n2, n3) => n1 + n2 + n3 - Math.min(n1, n2, n3) - Math.max(n1, n2, n3)
   const getCursor = listPosition => cursor.x === listPosition && cursorLayout[cursor.x][cursor.y]
-  const [cursor, setCursor] = useState({ x: 0, y: 0 })
+  const [cursor, setCursor] = useState(initialCursor)
   useEffect(() => {
     let { x, y } = cursor
     if (input.left) {

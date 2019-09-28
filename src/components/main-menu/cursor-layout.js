@@ -18,4 +18,6 @@ const cursorLayout = [
   ]
 ]
 
-export default cursorLayout
+const initialCursor = { x: 1, y: 0 }
+
+export { cursorLayout, initialCursor }
