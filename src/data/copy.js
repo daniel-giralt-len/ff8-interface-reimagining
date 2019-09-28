@@ -1,5 +1,5 @@
 const copy = {
-  window: 
+  window:
   {
     help: {
       title: 'HELP',
@@ -14,10 +14,10 @@ const copy = {
           card: 'Look at cards',
           config: 'Configuration Menu',
           tutorial: 'Explanation',
-          save: 'Save Menu',
+          save: 'Save Menu'
         },
-        party: 'Rearrange party order',
-        
+        party: 'Rearrange party order'
+
       }
     },
     status: {
@@ -33,7 +33,7 @@ const copy = {
       card: 'Card',
       config: 'Config',
       tutorial: 'Tutorial',
-      save: 'Save',
+      save: 'Save'
     },
     party: {
       level: 'Lv',

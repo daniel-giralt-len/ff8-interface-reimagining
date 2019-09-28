@@ -25,10 +25,9 @@ ${({ x }) => x && `margin-left: ${x};`}
 ${({ y }) => y && `margin-top: ${y};`}
 `
 
-
 const Window = ({ title, x, y, width, height, children }) => {
-  //since vertical margins in % are calculated off of width,
-  //this calculates y% off of height
+  // since vertical margins in % are calculated off of width,
+  // this calculates y% off of height
   const heightBasedY = (y && y.endsWith('%'))
     ? `${parseFloat(y.slice(0, -1)) * screenSize.height / screenSize.width}%`
     : y

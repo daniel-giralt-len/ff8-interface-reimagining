@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import MainMenu from './main-menu'
+import MainMenu from './main-menu/index.js'
 import screenSize from '../data/screen-size'
 import font from '../data/font'
 
@@ -24,24 +24,23 @@ const Screen = () => {
     card: 'Card TBD',
     config: 'Config TBD',
     tutorial: 'Tutorial TBD',
-    save: 'Save TBD',
+    save: 'Save TBD'
   }
-  
+
   const getCurrentMenuComponent = newMenuId => {
-    if(!Object.keys(menus).includes(newMenuId)) {
+    if (!Object.keys(menus).includes(newMenuId)) {
       throw new Error(`no such menu ${newMenuId}`)
     }
     return menus[newMenuId]
   }
-  
-  const CurrentMenuComponent = getCurrentMenuComponent('main')
-  
-  return (<ScreenStyled>
-      <CurrentMenuComponent 
-         onNavigate={getCurrentMenuComponent}
-        />
-    </ScreenStyled>)
-}
 
+  const CurrentMenuComponent = getCurrentMenuComponent('main')
+
+  return (<ScreenStyled>
+    <CurrentMenuComponent
+      onNavigate={getCurrentMenuComponent}
+    />
+  </ScreenStyled>)
+}
 
 export default Screen
