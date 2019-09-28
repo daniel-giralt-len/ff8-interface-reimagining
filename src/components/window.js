@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import screenSize from '../data/screen-size'
 import font from '../data/font'
+import PropTypes from 'prop-types'
 
 const StyledWindowTitle = styled.div`
   color: #AFAFAF;
@@ -35,7 +36,16 @@ const StyledWindow = styled.div`
   ${({ y }) => y && `margin-top: ${y};`}
 `
 
-const Window = ({ title, x, y, width, height, children, xCentered, yCentered }) => {
+const Window = ({
+  title,
+  x,
+  y,
+  width,
+  height,
+  children,
+  xCentered,
+  yCentered
+}) => {
   // since vertical margins in % are calculated off of width,
   // this calculates y% off of height
   const heightBasedY = (y && y.endsWith('%'))
@@ -54,6 +64,22 @@ const Window = ({ title, x, y, width, height, children, xCentered, yCentered }) 
       {children}
     </StyledWindowChildren>
   </StyledWindow>)
+}
+
+Window.propTypes = {
+  title: PropTypes.string,
+  x: PropTypes.string,
+  y: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  children: PropTypes.node,
+  xCentered: PropTypes.bool,
+  yCentered: PropTypes.bool
+}
+
+Window.defaultProps = {
+  xCentered: false,
+  yCentered: false
 }
 
 export default Window

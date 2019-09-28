@@ -4,13 +4,13 @@ import copy from '../../data/copy'
 import Window from '../window'
 
 const StyledSubMenusList = styled.ul`
-list-style: none;
-margin: 0;
-padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `
 
 const SubMenuItem = styled.li`
-padding: 3px 0px;
+  padding: 3px 0px;
 `
 
 const SubMenusList = ({ submenus }) => {
