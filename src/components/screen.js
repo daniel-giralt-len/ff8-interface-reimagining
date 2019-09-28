@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import MainMenu from './main-menu'
 import screenSize from '../data/screen-size'
+import font from '../data/font'
 
 const ScreenStyled = styled.div`
   background: #000;
   width: ${screenSize.width}px;
   height: ${screenSize.height}px;
   color: #FFF;
+  ${font.size.medium}
 `
 
 const Screen = () => {

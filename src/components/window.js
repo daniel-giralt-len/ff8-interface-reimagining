@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import screenSize from '../data/screen-size'
+import font from '../data/font'
 
 const StyledWindowTitle = styled.div`
 color: #AFAFAF;
-font-size: 6px;
+${font.size.tiny}
 margin-left: 5px;
 line-height: 0px;
 `
 
 const StyledWindowChildren = styled.div`
 padding: 2px 4px;
-font-size: 10px;
 font-variant-numeric: tabular-nums;
 `
 

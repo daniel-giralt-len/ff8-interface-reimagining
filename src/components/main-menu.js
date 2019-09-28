@@ -2,9 +2,10 @@ import React, { Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import copy from '../data/copy'
 import Window from './window'
+import font from '../data/font'
 
 const StyledGeneralData = styled.div`
-  font-size: 8px;
+  ${font.size.small}
 `
 
 const StyledGeneralDataSpacer = styled.div`
@@ -56,7 +57,7 @@ const StyledShortMember = styled.div`
 
 const StyledShortMemberStats = styled.div`
   margin-left: 1px;
-  font-size: 8px;
+  ${font.size.small}
   display: grid;
   grid-template-columns: 1fr 1fr;
 `
