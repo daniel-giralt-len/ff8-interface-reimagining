@@ -4,7 +4,7 @@ import copy from '../data/copy'
 import Window from './window'
 
 const StyledGeneralData = styled.div`
-  font-size: 10px;
+  font-size: 8px;
 `
 
 const StyledGeneralDataSpacer = styled.div`
@@ -56,7 +56,7 @@ const StyledShortMember = styled.div`
 
 const StyledShortMemberStats = styled.div`
   margin-left: 1px;
-  font-size: 10px;
+  font-size: 8px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 `

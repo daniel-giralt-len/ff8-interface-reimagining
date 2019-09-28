@@ -4,14 +4,14 @@ import screenSize from '../data/screen-size'
 
 const StyledWindowTitle = styled.div`
 color: #AFAFAF;
-font-size: 8px;
+font-size: 6px;
 margin-left: 5px;
 line-height: 0px;
 `
 
 const StyledWindowChildren = styled.div`
 padding: 2px 4px;
-font-size: 12px;
+font-size: 10px;
 font-variant-numeric: tabular-nums;
 `
 
