@@ -10,17 +10,18 @@ const StyledSubMenusList = styled.ul`
 `
 
 const SubMenuItem = styled.li`
+  ${({ hasCursor }) => hasCursor && 'background:red;'}
   padding: 3px 0px;
 `
 
-const SubMenusList = ({ submenus }) => {
+const SubMenusList = ({ submenus, cursor }) => {
   return (<Window
     x='72%'
     width='23%'
   >
     <StyledSubMenusList>
       {submenus.map((submenu) => {
-        return (<SubMenuItem key={submenu}>
+        return (<SubMenuItem key={submenu} hasCursor={cursor === submenu}>
           {copy.window.submenus[submenu]}
         </SubMenuItem>)
       })}

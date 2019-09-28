@@ -5,6 +5,7 @@ import copy from '../../data/copy'
 import Window from '../window'
 
 const StyledLongMember = styled.div`
+  ${({ hasCursor }) => hasCursor && 'background:red;'}
   width: 100%
   display: grid;
   text-align: right;
@@ -16,12 +17,13 @@ const StyledMemberName = styled.div`
   text-align: left;
 `
 
-const LongMember = ({ name, level, hp, maxHp }) => {
+const LongMember = ({ name, level, hp, maxHp, hasCursor }) => {
   const isCritical = hp / maxHp < 0.25
   const isKO = hp === 0
   return (<StyledLongMember
     isCritical={isCritical}
     isKO={isKO}
+    hasCursor={hasCursor}
   >
     <StyledMemberName>{name}</StyledMemberName>
     <div>{copy.window.party.level}</div>
@@ -33,18 +35,18 @@ const LongMember = ({ name, level, hp, maxHp }) => {
   </StyledLongMember>)
 }
 
-const ActivePartyWindow = ({ position, member }) => {
+const ActivePartyWindow = ({ position, member, hasCursor }) => {
   return (<Window
     title={copy.window.status.title}
     x='1.25%' y={`${10 + 10.5 * position}%`}
     width='67%' height='9%'
     xCentered yCentered
   >
-    <LongMember {...member} />
+    <LongMember hasCursor={hasCursor} {...member} />
   </Window>)
 }
 
-const ActivePartyList = ({ party }) => {
+const ActivePartyList = ({ party, cursor }) => {
   const [member0, member1, member2] = party
 
   return (
@@ -52,14 +54,17 @@ const ActivePartyList = ({ party }) => {
       <ActivePartyWindow
         position={0}
         member={member0}
+        hasCursor={cursor === 'activeParty0'}
       />
       <ActivePartyWindow
         position={1}
         member={member1}
+        hasCursor={cursor === 'activeParty1'}
       />
       <ActivePartyWindow
         position={2}
         member={member2}
+        hasCursor={cursor === 'activeParty2'}
       />
     </Fragment>
   )

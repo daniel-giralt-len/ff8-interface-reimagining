@@ -119,18 +119,25 @@ const MainMenu = ({ onNavigate }) => {
   }
 
   const mid = (n1, n2, n3) => n1 + n2 + n3 - Math.min(n1, n2, n3) - Math.max(n1, n2, n3)
+  const getCursor = listPosition => cursor.x === listPosition && cursorLayout[cursor.x][cursor.y]
   const [cursor, setCursor] = useState({ x: 1, y: 0 })
   useEffect(() => {
     let { x, y } = cursor
-    if (input.left) { x -= 1 }
-    if (input.right) { x += 1 }
-    if (input.up) { y -= 1 }
-    if (input.down) { y += 1 }
+    if (input.left) {
+      x -= 1
+    } else if (input.right) {
+      x += 1
+    } else if (input.up) {
+      y -= 1
+    } else if (input.down) {
+      y += 1
+    }
     x = mid(0, x, cursorLayout.length - 1)
     x === cursor.x
       ? y = mid(0, y, cursorLayout[x].length - 1)
-      : y = 0
+      : y = 0 // reset list position to 0 if active list changes
     setCursor({ x, y })
+    console.log(x, y)
   }, Object.values(input))
 
   return (<StyledMenu>
@@ -144,9 +151,11 @@ const MainMenu = ({ onNavigate }) => {
     </Window>
     <SubMenusList
       submenus={submenuList}
+      cursor={getCursor(1)}
     />
     <ActivePartyList
       party={activeParty}
+      cursor={getCursor(0)}
     />
     <InactivePartyList
       party={inactiveParty}
