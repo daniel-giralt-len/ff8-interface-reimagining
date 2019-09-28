@@ -4,26 +4,6 @@ import getMemberColorByStatus from './get-member-color'
 import copy from '../../data/copy'
 import Window from '../window'
 
-/* const StyledLongMember = styled.div`
-  display: flex;
-  justify-content: space-between;
-  color: ${({ isKO, isCritical }) => getMemberColorByStatus({ isKO, isCritical })}
-`
-
-const StyledLongMemberSpacer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin: 0px 2px;
-`
-
-const StyledLongLevelSpacer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 30%;
-`
- */
-
 const StyledLongMember = styled.div`
   width: 100%
   display: grid;
@@ -43,13 +23,13 @@ const LongMember = ({ name, level, hp, maxHp }) => {
     isCritical={isCritical}
     isKO={isKO}
   >
-      <StyledMemberName>{name}</StyledMemberName>
-      <div>{copy.window.party.level}</div>
-      <div>{level}</div>
-      <div>{copy.window.party.hp}</div>
-      <div>{hp}</div>
-      <div>/</div>
-      <div>{maxHp}</div>
+    <StyledMemberName>{name}</StyledMemberName>
+    <div>{copy.window.party.level}</div>
+    <div>{level}</div>
+    <div>{copy.window.party.hp}</div>
+    <div>{hp}</div>
+    <div>/</div>
+    <div>{maxHp}</div>
   </StyledLongMember>)
 }
 
@@ -58,6 +38,7 @@ const ActivePartyWindow = ({ position, member }) => {
     title={copy.window.status.title}
     x='1.25%' y={`${10 + 10.5 * position}%`}
     width='67%' height='9%'
+    xCentered yCentered
   >
     <LongMember {...member} />
   </Window>)

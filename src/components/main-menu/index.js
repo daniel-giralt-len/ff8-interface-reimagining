@@ -24,7 +24,7 @@ const activeParty = [
   },
   {
     name: 'Squall',
-    level: 99,
+    level: 100,
     hp: 9999,
     maxHp: 9999
   },
@@ -126,6 +126,7 @@ const MainMenu = ({ onNavigate }) => {
   return (<StyledMenu>
     <Window
       title={copy.window.help.title}
+      yCentered
       x='0%' y='0%'
       width='70%' height='8%'
     >
@@ -145,6 +146,7 @@ const MainMenu = ({ onNavigate }) => {
     <Window
       y='85%'
       width='70%' height='8%'
+      yCentered
     >
        Island Closest to Hell
     </Window>

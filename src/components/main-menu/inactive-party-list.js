@@ -67,6 +67,7 @@ const InactivePartyList = ({ party }) => {
   return (<Window
     x='1.25%' y='42%'
     width='67%' height='40%'
+    xCentered
   >
     <StyledInactivePartyList>
       {party.map((member) => (<ShortMember key={member.name} {...member} />))}

@@ -13,6 +13,16 @@ const StyledWindowTitle = styled.div`
 const StyledWindowChildren = styled.div`
   padding: 2px 4px;
   font-variant-numeric: tabular-nums;
+  ${({ xCentered, yCentered }) => {
+    if (xCentered || yCentered) {
+      return `
+        display: flex;
+        ${xCentered ? 'justify-content: center;' : ''}
+        ${yCentered ? 'align-items: center;' : ''}
+        height: -webkit-fill-available;
+      `
+    }
+  }}
 `
 
 const StyledWindow = styled.div`
@@ -25,7 +35,7 @@ const StyledWindow = styled.div`
   ${({ y }) => y && `margin-top: ${y};`}
 `
 
-const Window = ({ title, x, y, width, height, children }) => {
+const Window = ({ title, x, y, width, height, children, xCentered, yCentered }) => {
   // since vertical margins in % are calculated off of width,
   // this calculates y% off of height
   const heightBasedY = (y && y.endsWith('%'))
@@ -40,7 +50,7 @@ const Window = ({ title, x, y, width, height, children }) => {
     {title &&
       (<StyledWindowTitle>{title}</StyledWindowTitle>)
     }
-    <StyledWindowChildren>
+    <StyledWindowChildren xCentered={xCentered} yCentered={yCentered}>
       {children}
     </StyledWindowChildren>
   </StyledWindow>)

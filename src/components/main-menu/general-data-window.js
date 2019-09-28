@@ -5,13 +5,17 @@ import copy from '../../data/copy'
 import Window from '../window'
 
 const StyledGeneralData = styled.div`
-${font.size.small}
+  ${font.size.small}
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: -webkit-fill-available;
+  padding: 2px 0px;
 `
 
 const StyledGeneralDataSpacer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1px 0px;
 `
 
 const StyledMoneySpacer = styled.div`
