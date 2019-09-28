@@ -7,12 +7,18 @@
   "scripts": {
     "dev": "webpack-dev-server"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn eslint --fix src && git add"
+    }
+  },
   "dependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "file-loader": "^4.2.0",
+    "husky": "^3.0.7",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -20,5 +26,14 @@
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }
