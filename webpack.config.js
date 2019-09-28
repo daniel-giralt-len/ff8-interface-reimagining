@@ -1,10 +1,10 @@
-const path = require("path");
+const path = require('path')
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -12,20 +12,20 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
-        test: /\.woff$/,
+        test: /\.(woff|png)$/,
         use: [
           {
-            loader: 'file-loader',
-          },
-        ],
-      },
+            loader: 'file-loader'
+          }
+        ]
+      }
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "dist")
+    contentBase: path.resolve(__dirname, 'dist')
   }
-};
+}

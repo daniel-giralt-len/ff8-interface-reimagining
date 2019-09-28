@@ -2,10 +2,14 @@ import SubMenusList from './submenus-list'
 import ActivePartyList from './active-party-list'
 import InactivePartyList from './inactive-party-list'
 import GeneralDataWindow from './general-data-window'
+
+import Window from '../window'
+import Cursor from '../cursor'
+
+import copy from '../../data/copy'
+
 import styled from 'styled-components'
 import React, { useEffect, useState } from 'react'
-import Window from '../window'
-import copy from '../../data/copy'
 
 const generalData = {
   playTime: {
@@ -153,6 +157,7 @@ const MainMenu = ({ onNavigate }) => {
     <GeneralDataWindow
       {...generalData}
     />
+    <Cursor x='0%' y='0%' />
   </StyledMenu>)
 }
 
