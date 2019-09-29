@@ -15,7 +15,7 @@ const SubMenuItem = styled.li`
   padding: 3px 0px;
 `
 
-const SubMenusList = ({ submenus, cursor }) => {
+const SubMenusList = ({ submenus, cursor, subcursors }) => {
   return (<Window
     x='72%'
     width='23%'
@@ -23,6 +23,7 @@ const SubMenusList = ({ submenus, cursor }) => {
     <StyledSubMenusList>
       {submenus.map((submenu) => {
         return (<SubMenuItem key={submenu}>
+          {subcursors.includes(submenu) && (<Cursor x='-30%' isSubCursor />)}
           {cursor === submenu && (<Cursor x='-30%' />)}
           {copy.window.submenus[submenu]}
         </SubMenuItem>)

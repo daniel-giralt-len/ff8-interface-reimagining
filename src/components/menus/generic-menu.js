@@ -6,6 +6,18 @@ import copy from '../../data/copy'
 
 const mid = (n1, n2, n3) => n1 + n2 + n3 - Math.min(n1, n2, n3) - Math.max(n1, n2, n3)
 
+const usePileState = initialState => {
+  const [state, setState] = useState(initialState)
+  const getTop = () => state[state.length - 1]
+  const pushState = element => setState([...state, element])
+  const popState = () => {
+    const topElement = getTop()
+    setState(state.splice(0, state.length - 1))
+    return topElement
+  }
+  return [state, getTop, pushState, popState]
+}
+
 const useKeyPress = targetKey => {
   const [keyPressed, setKeyPressed] = useState(false)
 
@@ -43,7 +55,8 @@ const Menu = ({
   MenuComponent,
   cursorData: {
     cursorLayout,
-    initialCursor
+    initialCursor,
+    initialSubLayouts
   }
 }) => {
   return (props) => {
@@ -57,10 +70,26 @@ const Menu = ({
     }
 
     const [cursor, setCursor] = useState(initialCursor)
+    const [subcursors, , pushSubcursor, popSubcursor] = usePileState([])
+    const [, getCurrentSubLayout, , popSubLayout] = usePileState(initialSubLayouts)
 
     useEffect(() => {
       let { x, y } = cursor
-      if (input.left) {
+      const currentCursor = cursorLayout[getCurrentSubLayout()][cursor.x][cursor.y]
+      if (input.confirm) {
+        if (currentCursor.action === 'push-cursor') {
+          pushSubcursor(currentCursor.label)
+          // pushSubLayout(currentCursor.label)
+        }
+        if (currentCursor.action === 'pop-cursor') {
+          popSubcursor()
+          popSubLayout()
+        }
+        return
+      } else if (input.cancel) {
+        popSubcursor()
+        return
+      } else if (input.left) {
         x -= 1
       } else if (input.right) {
         x += 1
@@ -69,19 +98,21 @@ const Menu = ({
       } else if (input.down) {
         y += 1
       }
-      x = mid(0, x, cursorLayout.length - 1)
+      x = mid(0, x, cursorLayout[getCurrentSubLayout()].length - 1)
       x === cursor.x
-        ? y = mid(0, y, cursorLayout[x].length - 1)
+        ? y = mid(0, y, cursorLayout[getCurrentSubLayout()][x].length - 1)
         : y = 0 // reset list position to 0 if active list changes
       setCursor({ x, y })
+
+      console.log(JSON.stringify(subcursors))
     }, Object.values(input))
 
     return (
       <StyledMenu>
         <MenuComponent
           copy={copy}
-          cursor={cursor}
-          cursorLayout={cursorLayout}
+          cursor={cursorLayout[getCurrentSubLayout()][cursor.x][cursor.y].label}
+          subcursors={subcursors}
           {...props}
         />
       </StyledMenu>

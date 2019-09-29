@@ -27,6 +27,7 @@ const copy = {
       junction: 'Junction',
       item: 'Item',
       magic: 'Magic',
+      status: 'Status',
       gf: 'GF',
       ability: 'Ability',
       switch: 'Switch',

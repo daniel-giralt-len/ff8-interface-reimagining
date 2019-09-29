@@ -63,6 +63,7 @@ const submenuList = [
   'junction',
   'item',
   'magic',
+  'status',
   'gf',
   'ability',
   'switch',
@@ -72,9 +73,7 @@ const submenuList = [
   'save'
 ]
 
-const MainMenu = ({ onNavigate, cursor, cursorLayout, copy }) => {
-  const getCursor = listPosition => cursor.x === listPosition && cursorLayout[cursor.x][cursor.y]
-
+const MainMenu = ({ onNavigate, cursor, subcursors, copy }) => {
   return (<Fragment>
     <Window
       title={copy.window.help.title}
@@ -96,11 +95,13 @@ const MainMenu = ({ onNavigate, cursor, cursorLayout, copy }) => {
     </Window>
     <ActivePartyList
       party={activeParty}
-      cursor={getCursor(0)}
+      cursor={cursor}
+      subcursors={subcursors}
     />
     <SubMenusList
       submenus={submenuList}
-      cursor={getCursor(1)}
+      cursor={cursor}
+      subcursors={subcursors}
     />
     <GeneralDataWindow
       {...generalData}
