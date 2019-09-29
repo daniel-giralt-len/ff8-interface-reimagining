@@ -5,8 +5,9 @@
   "author": "IronyGames <ironygames@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "webpack --mode=\"production\"",
     "dev": "webpack-dev-server",
-    "lint": "yarn eslint --fix src"
+    "lint": "eslint --fix src"
   },
   "husky": {
     "hooks": {
