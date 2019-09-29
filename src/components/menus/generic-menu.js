@@ -1,48 +1,12 @@
 import styled from 'styled-components'
 import React, { useEffect, useState } from 'react'
+import useKeyPress from '../../hooks/use-key-press'
+import usePileState from '../../hooks/use-pile-state'
 import PropTypes from 'prop-types'
 
 import copy from '../../data/copy'
 
 const mid = (n1, n2, n3) => n1 + n2 + n3 - Math.min(n1, n2, n3) - Math.max(n1, n2, n3)
-
-const usePileState = initialState => {
-  const [state, setState] = useState(initialState)
-  const getTop = () => state[state.length - 1]
-  const pushState = element => setState([...state, element])
-  const popState = () => {
-    const topElement = getTop()
-    setState(state.splice(0, state.length - 1))
-    return topElement
-  }
-  return [state, getTop, pushState, popState]
-}
-
-const useKeyPress = targetKey => {
-  const [keyPressed, setKeyPressed] = useState(false)
-
-  const downHandler = ({ key }) => {
-    if (key === targetKey) {
-      setKeyPressed(true)
-    }
-  }
-
-  const upHandler = ({ key }) => {
-    if (key === targetKey) {
-      setKeyPressed(false)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('keydown', downHandler)
-    window.addEventListener('keyup', upHandler)
-    return () => {
-      window.removeEventListener('keydown', downHandler)
-      window.removeEventListener('keyup', upHandler)
-    }
-  }, [])
-  return keyPressed
-}
 
 const StyledMenu = styled.div`
   padding: 4px;
@@ -103,8 +67,6 @@ const Menu = ({
         ? y = mid(0, y, cursorLayout[getCurrentSubLayout()][x].length - 1)
         : y = 0 // reset list position to 0 if active list changes
       setCursor({ x, y })
-
-      console.log(JSON.stringify(subcursors))
     }, Object.values(input))
 
     return (
