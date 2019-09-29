@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import MainMenu from './main-menu/index.js'
+import MainMenu from './menus/main/index.js'
 import screenSize from '../data/screen-size'
 import font from '../data/font'
 

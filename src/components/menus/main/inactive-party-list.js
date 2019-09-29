@@ -1,9 +1,9 @@
 import React from 'react'
 import getMemberColorByStatus from './get-member-color'
 import styled from 'styled-components'
-import font from '../../data/font'
-import copy from '../../data/copy'
-import Window from '../window'
+import font from '../../../data/font'
+import copy from '../../../data/copy'
+import Window from '../../window'
 
 const StyledInactivePartyList = styled.div`
   display: grid;

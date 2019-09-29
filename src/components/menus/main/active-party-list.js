@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import getMemberColorByStatus from './get-member-color'
-import copy from '../../data/copy'
-import Window from '../window'
-import Cursor from '../cursor'
+import copy from '../../../data/copy'
+import Window from '../../window'
+import Cursor from '../../cursor'
 
 const StyledLongMember = styled.div`
   width: 100%

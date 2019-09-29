@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import copy from '../../data/copy'
-import Window from '../window'
-import Cursor from '../cursor'
+import copy from '../../../data/copy'
+import Window from '../../window'
+import Cursor from '../../cursor'
 
 const StyledSubMenusList = styled.ul`
   list-style: none;
