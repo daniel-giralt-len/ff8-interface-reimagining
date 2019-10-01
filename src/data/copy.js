@@ -44,6 +44,9 @@ const copy = {
       playTime: 'PLAY',
       rank: 'SeeD',
       gilSign: 'G'
+    },
+    gf: {
+      title: 'GF'
     }
   }
 }

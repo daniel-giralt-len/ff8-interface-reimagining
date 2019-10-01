@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MainMenu from './menus/main/index.js'
+import GFMenu from './menus/gf/index.js'
 import screenSize from '../data/screen-size'
 import font from '../data/font'
 
@@ -18,7 +19,7 @@ const Screen = () => {
     junction: 'Junction TBD',
     item: 'Item TBD',
     magic: 'Magic TBD',
-    gf: 'GF TBD',
+    gf: GFMenu,
     ability: 'Ability TBD',
     switch: 'Switch TBD',
     card: 'Card TBD',
@@ -34,7 +35,8 @@ const Screen = () => {
     return menus[newMenuId]
   }
 
-  const CurrentMenuComponent = getCurrentMenuComponent('main')
+  //const CurrentMenuComponent = getCurrentMenuComponent('main')
+  const CurrentMenuComponent = getCurrentMenuComponent('gf')
 
   return (<ScreenStyled>
     <CurrentMenuComponent

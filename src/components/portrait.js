@@ -7,26 +7,26 @@ const StyledImage = styled.img`
   image-rendering: pixelated;
   ${({ x }) => x && `margin-left: ${x};`}
   ${({ y }) => y && `margin-top: ${y};`}
-  ${({ isSubCursor }) => isSubCursor && 'opacity: 0.6;'}
+  width: 28px;
+  height: 53px;
 `
 
-const Cursor = ({ isSubCursor, x, y }) => {
+const idToUrl = {
+  squall: './squall-portrait.png'
+}
+
+const Portrait = ({ character, x, y }) => {
   return (<StyledImage
-    isSubCursor={isSubCursor}
-    src='./cursor.png'
+    src={idToUrl[character]}
     x={x}
     y={y}
   />)
 }
 
-Cursor.propTypes = {
-  isSubCursor: PropTypes.bool,
+Portrait.propTypes = {
+  character: PropTypes.string.isRequired,
   x: PropTypes.string,
   y: PropTypes.string
 }
 
-Cursor.defaultProps = {
-  isSubCursor: false
-}
-
-export default Cursor
+export default Portrait
